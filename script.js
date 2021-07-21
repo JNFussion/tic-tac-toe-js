@@ -232,6 +232,8 @@ const gameFlow = (() => {
 
   formClose.addEventListener('click', toggleHide);
   formClose.addEventListener('click', writePlayersNames);
+  formClose.addEventListener('click', writeScoreCells);
+  formClose.addEventListener('click', () => {document.getElementById('best-of').textContent += numbSets;});
   resetButtons.forEach(e => e.addEventListener('click', reset));
 
   form.addEventListener("submit", (event) => {
@@ -240,7 +242,7 @@ const gameFlow = (() => {
     let pj1Name = form.querySelector('input[name="player1-name"]').value;
     let pj2Name = form.querySelector('input[name="player2-name"]').value;
     numbSets = form.querySelector('input[name="number-sets"]:checked').value;
-    document.getElementById('best-of').textContent += numbSets;   
+    document.getElementById('best-of').textContent += numbSets;
     pj1.setPlayerName(pj1Name);
     pj2.setPlayerName(pj2Name);
   
@@ -261,13 +263,11 @@ const gameFlow = (() => {
       targetBoardCell.textContent = playerTurn.getLetter();
         
       if(gameBoard.isWin(playerTurn)){
-        console.log("EHEH")
         let pTurnScoreBar = turn ? scorePj1 : scorePj2;
         playerTurn.winRound();
         playerTurn.isMatchWin(numbSets) ? WinMessage.win(playerTurn, true) : WinMessage.win(playerTurn, false);
         addWinScoreBar(pTurnScoreBar);
       }else if (gameBoard.isDraw(playerTurn)){
-        console.log("PAPAPAPA")
         WinMessage.draw();
       }        
       turn = !turn;
