@@ -14,37 +14,72 @@
   <title>TicTacToe</title>
 </head>
 <body>
+
+  <div id="form-container" class="overlay has-background">
+    <form id="new-game-form" class="card" action="">
+      <a class="close-btn" href="#"><i class="fas fa-times-circle"></i></a>
+      
+      
+      <fielset id="sets-group">
+        <legend>Number of sets:</legend>
+        <label>
+          <input type="radio" name="number-sets" value="1" checked> 1
+        </label>
+        <label>
+          <input type="radio" name="number-sets" value="3"> 3
+        </label>
+        <label>
+          <input type="radio" name="number-sets" value="5"> 5
+        </label>
+      </fielset>
+      
+      
+      <fielset id="names-group">
+        <div class="field pj-1">
+          <label for="player1-name" class="name">Player 1</label>
+          <div class="input-container">
+            <input type="text" name="player1-name" value="Player 1">
+          </div>
+        </div>
+        <div class="field pj-2">
+          <label for="player2-name" class="name">Player 2</label>
+          <div class="input-container">
+            <input type="text" name="player2-name" value="Player 2">
+          </div>
+        </div>
+      </fielset>
+    
+      <input class="btn" type="submit" value="Start Game">
+    </form>
+  </div>
+
   <div class="main-content">
+    <div class="buttons">
+      <a href="#" class="btn reset"><i class="fas fa-redo fa-flip-horizontal"></i><span>Reset</span></a>
+      <a href="#" class="btn play-btn"><span>Restart</span><i class="fas fa-play"></i></a>
+    </div>
     <header>
       <h1>Tic Tac Toe</h1>
-      <h2>Best of 5</h2>
+      <h2 id="best-of">Best of </h2>
       <div class="vs-container">
-        <article id="pj-1" class="player">
+        <article class="player pj-1">
           <div class="avatar-container">
             <i class="fas fa-user"></i>
           </div>
           <div class="player-content">
             <div class="score"> 
-              <div class="score-cell"></div>
-              <div class="score-cell"></div>
-              <div class="score-cell"></div>
-              <div class="score-cell"></div>
-              <div class="score-cell"></div>
+
             </div>
-            <h2 class="name">Player 1</h2>
+            <h2 class="name"></h2>
           </div>
         </article>
         <p class="versus">Vs</p>
-        <article id="pj-2" class="player">
+        <article class="player pj-2">
           <div class="player-content">
             <div class="score"> 
-              <div class="score-cell"></div>
-              <div class="score-cell"></div>
-              <div class="score-cell"></div>
-              <div class="score-cell"></div>
-              <div class="score-cell"></div>
+
             </div>
-            <h2 class="name">Player 2</h2>
+            <h2 class="name"></h2>
           </div>
           <div class="avatar-container">
             <i class="fas fa-user"></i>
@@ -53,7 +88,7 @@
       </div>
     </header>
     <section class="board-wrapper">
-      <article class="board">
+      <article id="board">
         <div class="board-cell"></div>
         <div class="board-cell"></div>
         <div class="board-cell"></div>
@@ -66,5 +101,18 @@
       </article>
     </section>
   </div>
+
+  <div id="win-message" class="overlay hide">
+    <div class="card">
+      <a class="close-btn" href="#"><i class="fas fa-times-circle"></i></a>
+      <h2>Victory</h2>
+      <p id="win-message-content"></p>
+      <div class="buttons">
+        <a href="#" class="btn reset"><i class="fas fa-redo"></i><span>Reset</span></a>
+        <a href="#" class="btn play-btn"><span></span><i class="fas fa-play"></i></a>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
